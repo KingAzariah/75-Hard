@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>75 Hard Challenge Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1c1c1c;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        .tracker {
+            background-color: #2e2e2e;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .tracker label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .tracker input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .button {
+            display: block;
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>75 Hard Challenge Tracker</h1>
+    <div class="tracker">
+        <label><input type="checkbox" id="nutrition"> Followed nutrition plan</label>
+        <label><input type="checkbox" id="workout1"> First 45-minute workout</label>
+        <label><input type="checkbox" id="workout2"> Second 45-minute workout</label>
+        <label><input type="checkbox" id="water"> Drank a gallon of water</label>
+        <label><input type="checkbox" id="reading"> Read 10 pages of a nonfiction book</label>
+        <label><input type="checkbox" id="progressPic"> Took a progress picture</label>
+
+        <button class="button" onclick="checkProgress()">Submit</button>
+    </div>
+
+    <script>
+        function checkProgress() {
+            const nutrition = document.getElementById('nutrition').checked;
+            const workout1 = document.getElementById('workout1').checked;
+            const workout2 = document.getElementById('workout2').checked;
+            const water = document.getElementById('water').checked;
+            const reading = document.getElementById('reading').checked;
+            const progressPic = document.getElementById('progressPic').checked;
+
+            if (nutrition && workout1 && workout2 && water && reading && progressPic) {
+                window.location.href = 'success.html';
+            } else {
+                window.location.href = 'failure.html';
+            }
+        }
+    </script>
+</body>
+</html>
